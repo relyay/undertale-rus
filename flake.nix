@@ -33,15 +33,6 @@
 
           runScript = pkgs.writeShellScript "run-rusifier" ''
             cd "${./data}"
-            export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [
-              pkgs.icu
-              pkgs.libgdiplus
-              pkgs.cairo
-              pkgs.fontconfig
-              pkgs.freetype
-              pkgs.libpng
-            ]}:$LD_LIBRARY_PATH
-
             exec ./UndertaleRusInstaller
           '';
         };
