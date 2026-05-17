@@ -32,7 +32,12 @@
           ];
 
           runScript = pkgs.writeShellScript "run-rusifier" ''
-            cd "${./data}"
+            WORKDIR=$HOME/.undertale-rus
+            mkdir -p $WORKDIR
+
+            cp -r ${./data}/* $WORKDIR/
+            cd $WORKDIR
+
             exec ./UndertaleRusInstaller
           '';
         };
